@@ -9,10 +9,12 @@ HARDWARE = ("esp32-p4", "esp32-s3", "raspberry-pi-4", "arduino-uno")
 
 
 class RepositoryValidatorTests(unittest.TestCase):
-    def make_repository(self) -> Path:
+    def make_repository(self, parent_name: str | None = None) -> Path:
         temp = tempfile.TemporaryDirectory()
         self.addCleanup(temp.cleanup)
-        root = Path(temp.name)
+        base = Path(temp.name)
+        root = base if parent_name is None else base / parent_name / "repository"
+        root.mkdir(parents=True, exist_ok=True)
         (root / "README.md").write_text("# QHardware\n", encoding="utf-8")
         (root / "LICENSE").write_text("MIT\n", encoding="utf-8")
         (root / ".gitignore").write_text("build/\n", encoding="utf-8")
@@ -77,6 +79,13 @@ class RepositoryValidatorTests(unittest.TestCase):
 
     def test_unix_home_path_is_reported(self) -> None:
         root = self.make_repository()
+        self.add_exercise(root)
+        (root / "notes.md").write_text("SDK: /home/alice/esp-idf\n", encoding="utf-8")
+        errors = validate_repository(root)
+        self.assertTrue(any("absolute user path" in error for error in errors))
+
+    def test_workspace_parent_name_does_not_disable_scanning(self) -> None:
+        root = self.make_repository(".worktrees")
         self.add_exercise(root)
         (root / "notes.md").write_text("SDK: /home/alice/esp-idf\n", encoding="utf-8")
         errors = validate_repository(root)

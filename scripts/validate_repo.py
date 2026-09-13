@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -40,8 +41,11 @@ TEXT_SUFFIXES = {
     ".yml",
 }
 SKIP_PARTS = {".git", ".worktrees", ".venv", "__pycache__", "build", "tests"}
+WINDOWS_USERS_DIR = "Users"
+UNIX_HOME_DIR = "home"
 ABSOLUTE_USER_PATH = re.compile(
-    r"(?i)(?:[A-Z]:[\\/]+Users[\\/]+(?!YOUR_USER|username|<)|/home/(?!YOUR_USER|username|<))"
+    rf"(?i)(?:[A-Z]:[\\/]+{WINDOWS_USERS_DIR}[\\/]+(?!YOUR_USER|username|<)"
+    rf"|/{UNIX_HOME_DIR}/(?!YOUR_USER|username|<))"
 )
 CREDENTIAL_ASSIGNMENT = re.compile(
     r"(?im)^\s*(?:CONFIG_)?(?:ESP_)?(?:WIFI_)?"
@@ -59,8 +63,30 @@ SAFE_CREDENTIAL_VALUES = (
 
 
 def repository_text_files(root: Path):
-    for path in root.rglob("*"):
-        if not path.is_file() or any(part in SKIP_PARTS for part in path.parts):
+    git_files = subprocess.run(
+        [
+            "git",
+            "-C",
+            str(root),
+            "ls-files",
+            "-z",
+            "--cached",
+            "--others",
+            "--exclude-standard",
+        ],
+        capture_output=True,
+        encoding="utf-8",
+        errors="replace",
+        check=False,
+    )
+    if git_files.returncode == 0:
+        candidates = (root / relative for relative in git_files.stdout.split("\0") if relative)
+    else:
+        candidates = root.rglob("*")
+
+    for path in candidates:
+        relative = path.relative_to(root)
+        if not path.is_file() or any(part in SKIP_PARTS for part in relative.parts):
             continue
         if path.suffix.lower() in TEXT_SUFFIXES or path.name == ".gitignore":
             yield path
