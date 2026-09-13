@@ -1,0 +1,1 @@
+The LCD displays a 30-second warm-up, then `Idle` or `Motion` plus a count. The 9600-baud monitor logs state changes.

@@ -1,0 +1,1 @@
+At 9600 baud the sketch prints `INIT:a,b,c,d` or `ERROR:PCA9685_NOT_FOUND`. Each command is eight big-endian bytes containing four angles in centidegrees.
