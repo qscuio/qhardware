@@ -1,0 +1,12 @@
+Date: 2026-09-13
+Board: Waveshare ESP32-P4-WIFI6, ESP32-P4 revision 3.2
+Toolchain: ESP-IDF 5.5.5, ESP-Hosted 1.4.7, ESP Wi-Fi Remote 0.14.5
+
+transport:        - HCI over SDIO
+transport:        - BLE only
+vhci_drv: Host BT Support: Enabled
+vhci_drv: BT Transport Type: VHCI
+NimBLE_BLE_PRPH: BLE Host Task Started
+NimBLE: GAP procedure initiated: advertise;
+
+Windows scanner result: the local Bluetooth radio was enabled and discovered other nearby BLE names, but did not discover nimble-bleprph by name or by the board-reported address. The device-side hosted Bluetooth and advertising procedure passed; over-the-air discovery from this computer remains unconfirmed. Addresses and nearby names were removed.

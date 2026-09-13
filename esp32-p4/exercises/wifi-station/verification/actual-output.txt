@@ -1,0 +1,12 @@
+Date: 2026-09-13
+Board: Waveshare ESP32-P4-WIFI6, ESP32-P4 revision 3.2
+Toolchain: ESP-IDF 5.5.5, ESP-Hosted 1.4.7, ESP Wi-Fi Remote 0.14.5
+
+SDIO master: Data-Lines: 4-bit Freq(KHz)[40000 KHz]
+transport: Features supported are:
+transport:      * WLAN
+wifi station: wifi_init_sta finished.
+wifi station: got ip:[REDACTED]
+wifi station: connected to ap SSID:[REDACTED]
+
+The first run used an incorrectly transcribed password and consistently returned reasons 204 and 205. Correcting only the private password produced association and DHCP success. Credentials, addresses, and local paths were removed.

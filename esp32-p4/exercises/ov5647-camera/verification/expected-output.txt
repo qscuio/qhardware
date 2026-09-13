@@ -1,0 +1,4 @@
+Detected Camera sensor PID=0x5647
+Frame format: 800x800
+Captured frame: 1280000 bytes
+CAMERA TEST PASS: sensor detected and a MIPI-CSI frame was received

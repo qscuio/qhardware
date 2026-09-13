@@ -1,0 +1,7 @@
+transport:        - HCI over SDIO
+transport:        - BLE only
+vhci_drv: Host BT Support: Enabled
+vhci_drv: BT Transport Type: VHCI
+NimBLE_BLE_PRPH: BLE Host Task Started
+NimBLE: GAP procedure initiated: advertise;
+Scanner: nimble-bleprph

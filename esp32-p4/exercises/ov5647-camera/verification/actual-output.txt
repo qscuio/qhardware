@@ -1,0 +1,11 @@
+Date: 2026-09-13
+Board: Waveshare ESP32-P4-WIFI6, ESP32-P4 revision 3.2
+Toolchain: ESP-IDF 5.5.5
+
+Detected Camera sensor PID=0x5647
+ISP output: 800x800 RGB565
+Captured frame: 1280000 bytes
+Sampled frame checksums changed between live captures.
+CAMERA TEST PASS: sensor detected and a MIPI-CSI frame was received
+
+Local paths and device identifiers were removed from this record.
