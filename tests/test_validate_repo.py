@@ -5,7 +5,7 @@ from pathlib import Path
 from scripts.validate_repo import validate_repository
 
 
-HARDWARE = ("esp32-p4", "raspberry-pi-4", "arduino-uno")
+HARDWARE = ("esp32-p4", "esp32-s3", "raspberry-pi-4", "arduino-uno")
 
 
 class RepositoryValidatorTests(unittest.TestCase):
@@ -53,6 +53,12 @@ class RepositoryValidatorTests(unittest.TestCase):
         (exercise / "verification" / "method.md").unlink()
         errors = validate_repository(root)
         self.assertTrue(any("verification/method.md" in error for error in errors))
+
+    def test_missing_esp32_s3_readme_is_reported(self) -> None:
+        root = self.make_repository()
+        (root / "esp32-s3" / "README.md").unlink()
+        errors = validate_repository(root)
+        self.assertIn("missing hardware README: esp32-s3/README.md", errors)
 
     def test_invalid_evidence_state_is_reported(self) -> None:
         root = self.make_repository()

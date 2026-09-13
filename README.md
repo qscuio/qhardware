@@ -1,10 +1,11 @@
 # QHardware
 
-QHardware collects repeatable hardware exercises for three boards. Each section explains how to identify and connect the board, diagnose common failures, build or update firmware on Windows and Linux, run an exercise, and preserve evidence.
+QHardware collects repeatable hardware exercises for four hardware families. Each section explains how to identify and connect the board, diagnose common failures, build or update firmware on Windows and Linux, run an exercise, and preserve evidence.
 
 ## Hardware
 
 - [Waveshare ESP32-P4-WIFI6](esp32-p4/README.md)
+- [ESP32-S3 development boards](esp32-s3/README.md)
 - [Raspberry Pi 4](raspberry-pi-4/README.md)
 - [Arduino Uno](arduino-uno/README.md)
 
@@ -28,6 +29,12 @@ python -m unittest discover -s tests -v
 ```
 
 Local credentials, downloaded SDKs, build trees, device-specific flash backups, and operating-system images are excluded from Git.
+
+## Fundamentals
+
+- [Twenty ESP32 experiments: from LED control to a robot controller](docs/fundamentals/ESP32_20实验_从点灯到机器人主控板.md)
+- [Signals, time and frequency domains, digitalization, and carriers](docs/fundamentals/信号_时域_频域_数字化_载波_完整逻辑模型.md)
+- [PCB clock systems, PLLs, clock-domain crossing, and high-speed interfaces](docs/fundamentals/pcb_clock_session_notes.md)
 
 ## License
 

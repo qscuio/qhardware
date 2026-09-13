@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 
-HARDWARE_DIRECTORIES = ("esp32-p4", "raspberry-pi-4", "arduino-uno")
+HARDWARE_DIRECTORIES = ("esp32-p4", "esp32-s3", "raspberry-pi-4", "arduino-uno")
 REQUIRED_ROOT_FILES = (
     "README.md",
     "LICENSE",
