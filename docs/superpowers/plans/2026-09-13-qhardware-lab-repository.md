@@ -122,4 +122,3 @@
 - [ ] **Step 3: Review the staged file list and secret scan** with `git diff --check`, `git status --short`, and the validator; verify no local SSID, password, private IP, user profile path, SDK tree, or backup is present.
 - [ ] **Step 4: Push `codex/initialize-hardware-labs`** to `origin` and create a draft pull request titled `Initialize reproducible hardware practice labs` whose body lists hardware-verified, build-verified, and documented exercises separately.
 - [ ] **Step 5: Open the draft PR for review** and report its URL plus any tests that could not run because hardware was unavailable.
-
