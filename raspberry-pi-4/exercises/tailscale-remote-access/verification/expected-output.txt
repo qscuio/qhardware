@@ -1,0 +1,4 @@
+Parts : positive integer
+Bytes : original file size
+SHA256 : 64 lowercase hexadecimal characters
+SHA-256 verified: same 64-character hash

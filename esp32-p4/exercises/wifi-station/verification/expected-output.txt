@@ -1,0 +1,5 @@
+transport: Features supported are:
+transport:      * WLAN
+wifi station: wifi_init_sta finished.
+wifi station: got ip:[REDACTED]
+wifi station: connected to ap SSID:[REDACTED]

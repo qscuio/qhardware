@@ -1,0 +1,1 @@
+The onboard LED flashes three times at 120 ms on/off intervals, then remains off for about 1.2 seconds before repeating.

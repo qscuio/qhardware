@@ -1,0 +1,1 @@
+At startup the servo visits 90, 0, 90, 180, and 90 degrees. The 9600-baud monitor prints each angle and accepts newline-terminated values.

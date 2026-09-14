@@ -1,0 +1,1 @@
+D9 sweeps up and down over four seconds, D8 emits a double pulse every second, and D6 duty cycle rises and falls.

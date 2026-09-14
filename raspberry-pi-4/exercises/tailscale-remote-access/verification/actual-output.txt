@@ -1,0 +1,8 @@
+Date: 2026-09-13
+State: scripts verified locally; no Raspberry Pi 4 was reachable for a current network or boot test.
+
+PowerShell parser: PASS
+PowerShell split test: PASS (2,500,000 bytes into three parts)
+PowerShell reconstruction SHA-256: PASS
+Git Bash POSIX syntax: PASS
+Git Bash join and SHA-256 verification: PASS

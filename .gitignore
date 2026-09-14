@@ -1,0 +1,42 @@
+# Isolated Git worktrees
+.worktrees/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+
+# ESP-IDF and embedded build outputs
+build*/
+sdkconfig
+sdkconfig.old
+managed_components/
+dependencies.lock
+/esp32-p4/exercises/wifi-station/sdkconfig.defaults
+*.elf
+*.map
+
+# Arduino build and cache outputs
+.arduino/
+*.hex
+*.eep
+
+# Local credentials and device-specific settings
+sdkconfig.local
+secrets.*
+*.private
+*.key
+
+# Device backups and operating-system images
+*.bin
+*.img
+*.iso
+*.deb
+*.part
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

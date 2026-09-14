@@ -1,0 +1,1 @@
+D8 pulses about every 833 ms (roughly 72 BPM). A low-pass filtered D3 signal shows P, QRS, and T-like features with slow baseline drift.
