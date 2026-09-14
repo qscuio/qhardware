@@ -4,6 +4,7 @@ This section targets Raspberry Pi 4 without assuming its RAM size, storage mediu
 
 ## Guides
 
+- [Study the Raspberry Pi 4 Model B PCB architecture, power tree, boot EEPROM, LPDDR4, PCIe/USB, Ethernet, HDMI, RF, and thermals](../docs/fundamentals/真实PCB案例_RaspberryPi4.md)
 - [Connect with local console, SSH, or Tailscale](docs/connection-ssh-tailscale.md)
 - [Debug power, boot, services, network, storage, and GPIO](docs/debugging.md)
 - [Update the OS, EEPROM, boot media, or kernel](docs/os-eeprom-kernel-update.md)

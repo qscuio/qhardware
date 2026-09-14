@@ -35,6 +35,7 @@ Local credentials, downloaded SDKs, build trees, device-specific flash backups, 
 - [Circuit fundamentals: rebuild intuition from Ohm's law](docs/fundamentals/电路基础.md)
 - [Common circuit components and functional modules: filters, protection, power, drivers, analog front ends, and interfaces](docs/fundamentals/常用电路模块手册.md)
 - [Real, working PCB case studies: Arduino UNO R3, ESP32-DevKitC V4, RP2040 minimal board, and Adafruit Motor Shield V2](docs/fundamentals/真实PCB案例拆解.md)
+- [Raspberry Pi 4 Model B board-level case study: power tree, boot EEPROM, LPDDR4, PCIe/USB, Ethernet, HDMI, RF, and thermals](docs/fundamentals/真实PCB案例_RaspberryPi4.md)
 - [Twenty ESP32 experiments: from LED control to a robot controller](docs/fundamentals/ESP32_20实验_从点灯到机器人主控板.md)
 - [Signals, time and frequency domains, digitalization, and carriers](docs/fundamentals/信号_时域_频域_数字化_载波_完整逻辑模型.md)
 - [PCB clock systems, PLLs, clock-domain crossing, and high-speed interfaces](docs/fundamentals/pcb_clock_session_notes.md)
