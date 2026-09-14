@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <style>
+    text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;fill:#172033}
+    .title{font-size:30px;font-weight:700}.sub{font-size:17px;fill:#56657a}.h{font-size:21px;font-weight:700}.t{font-size:17px}.tiny{font-size:14px}
+    .board{fill:#f7fbff;stroke:#24364b;stroke-width:4}.power{fill:#fff3d6;stroke:#d88700;stroke-width:2.5}.iface{fill:#e7f2ff;stroke:#2476b8;stroke-width:2.5}
+    .logic{fill:#e9f8ec;stroke:#2e8b57;stroke-width:2.5}.passive{fill:#f2ebff;stroke:#7857a8;stroke-width:2.5}.conn{fill:#f4f6f8;stroke:#6b7785;stroke-width:2.5}
+    .motor{fill:#fff0ea;stroke:#c35b2c;stroke-width:2.5}.wire{fill:none;stroke:#172033;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+    .arrow{fill:none;stroke:#172033;stroke-width:3;marker-end:url(#arr)}.powerline{fill:none;stroke:#d88700;stroke-width:5;marker-end:url(#arrp)}
+    .dash{fill:none;stroke:#8a98aa;stroke-width:2;stroke-dasharray:8 7}
+  </style>
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L10,3 L0,6 Z" fill="#172033"/></marker>
+    <marker id="arrp" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L10,3 L0,6 Z" fill="#d88700"/></marker>
+  </defs>
+  <rect width="1200" height="760" fill="#ffffff"/>
+  <text x="600" y="42" text-anchor="middle" class="title">真实 PCB 案例：Adafruit Motor Shield V2</text>
+  <text x="600" y="70" text-anchor="middle" class="sub">量产开源电机驱动板：I²C 控制链和电机能量链分开分析；位置近似</text>
+
+  <path class="board" d="M105 120 H1000 L1060 180 V590 L1005 635 H105 Z"/>
+  <rect x="145" y="102" width="745" height="38" rx="7" class="conn"/><text x="517" y="128" text-anchor="middle" class="t">Arduino Shield 排针：5 V / GND / SDA / SCL / D9 / D10</text>
+  <rect x="145" y="610" width="745" height="38" rx="7" class="conn"/><text x="517" y="636" text-anchor="middle" class="t">Arduino Shield 排针：电源与 IO 穿通</text>
+
+  <rect x="135" y="190" width="190" height="105" rx="11" class="iface"/>
+  <text x="230" y="226" text-anchor="middle" class="h">I²C PWM 控制器</text><text x="230" y="256" text-anchor="middle" class="t">PCA9685</text><text x="230" y="281" text-anchor="middle" class="tiny">16 路 PWM，不占用大量 MCU 引脚</text>
+  <rect x="135" y="335" width="190" height="105" rx="11" class="passive"/>
+  <text x="230" y="370" text-anchor="middle" class="h">地址与默认状态</text><text x="230" y="400" text-anchor="middle" class="t">A0…A4 焊桥</text><text x="230" y="425" text-anchor="middle" class="tiny">上电先禁用电机输出</text>
+
+  <rect x="405" y="185" width="220" height="150" rx="13" class="motor"/>
+  <text x="515" y="224" text-anchor="middle" class="h">双 H 桥驱动 1</text><text x="515" y="258" text-anchor="middle" class="h">TB6612FNG</text><text x="515" y="291" text-anchor="middle" class="t">M1 / M2</text><text x="515" y="317" text-anchor="middle" class="tiny">MOSFET 输出级 + 内置续流路径</text>
+  <rect x="405" y="385" width="220" height="150" rx="13" class="motor"/>
+  <text x="515" y="424" text-anchor="middle" class="h">双 H 桥驱动 2</text><text x="515" y="458" text-anchor="middle" class="h">TB6612FNG</text><text x="515" y="491" text-anchor="middle" class="t">M3 / M4</text><text x="515" y="517" text-anchor="middle" class="tiny">可组合成两组双极步进电机输出</text>
+
+  <rect x="705" y="165" width="150" height="90" rx="10" class="conn"/><text x="780" y="200" text-anchor="middle" class="h">M1 / M2</text><text x="780" y="229" text-anchor="middle" class="t">电机端子</text>
+  <rect x="705" y="430" width="150" height="90" rx="10" class="conn"/><text x="780" y="465" text-anchor="middle" class="h">M3 / M4</text><text x="780" y="494" text-anchor="middle" class="t">电机端子</text>
+  <rect x="900" y="220" width="135" height="110" rx="10" class="conn"/><text x="967" y="257" text-anchor="middle" class="h">舵机端子</text><text x="967" y="288" text-anchor="middle" class="t">D9 / D10</text><text x="967" y="313" text-anchor="middle" class="tiny">独立于 H 桥</text>
+
+  <rect x="700" y="545" width="210" height="75" rx="11" class="power"/>
+  <text x="805" y="574" text-anchor="middle" class="h">电机电源入口</text><text x="805" y="602" text-anchor="middle" class="t">4.5–13.5 V 端子</text>
+  <rect x="425" y="555" width="215" height="65" rx="10" class="power"/>
+  <text x="532" y="581" text-anchor="middle" class="h">反接保护 + 母线储能</text><text x="532" y="607" text-anchor="middle" class="tiny">P-MOSFET / 大电解 / 粗铜回路</text>
+
+  <path d="M230 140 V190" class="arrow"/><path d="M325 242 H405" class="arrow"/><path d="M325 388 H370 V270 H405" class="dash"/>
+  <path d="M625 240 H705" class="arrow"/><path d="M625 460 H705" class="arrow"/>
+  <path d="M700 582 H640" class="powerline"/><path d="M425 588 H370 V330 H405" class="powerline"/><path d="M370 330 V475 H405" class="powerline"/>
+  <path d="M890 140 H967 V220" class="arrow"/>
+
+  <rect x="70" y="665" width="1060" height="72" rx="12" fill="#f7f9fc" stroke="#c7d0da" stroke-width="2"/>
+  <text x="100" y="695" class="h">阅读重点：</text>
+  <text x="242" y="695" class="t">I²C/PWM 是信息路径，电机端子 → 保护与母线电容 → TB6612 → 电机端子才是大电流能量路径。</text>
+  <text x="242" y="723" class="t">同一块板上，逻辑 5 V、舵机电源和电机电源用途不同；驱动能力必须按启动/堵转电流和散热验证。</text>
+</svg>

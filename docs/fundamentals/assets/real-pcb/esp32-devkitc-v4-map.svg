@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <style>
+    text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;fill:#172033}
+    .title{font-size:30px;font-weight:700}.sub{font-size:17px;fill:#56657a}.h{font-size:21px;font-weight:700}.t{font-size:17px}.tiny{font-size:14px}
+    .board{fill:#f7fbff;stroke:#24364b;stroke-width:4}.power{fill:#fff3d6;stroke:#d88700;stroke-width:2.5}.iface{fill:#e7f2ff;stroke:#2476b8;stroke-width:2.5}
+    .logic{fill:#e9f8ec;stroke:#2e8b57;stroke-width:2.5}.passive{fill:#f2ebff;stroke:#7857a8;stroke-width:2.5}.conn{fill:#f4f6f8;stroke:#6b7785;stroke-width:2.5}
+    .keepout{fill:#fff7f7;stroke:#c84c4c;stroke-width:2;stroke-dasharray:7 6}.wire{fill:none;stroke:#172033;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+    .arrow{fill:none;stroke:#172033;stroke-width:3;marker-end:url(#arr)}.dash{fill:none;stroke:#8a98aa;stroke-width:2;stroke-dasharray:8 7}
+  </style>
+  <defs><marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L10,3 L0,6 Z" fill="#172033"/></marker></defs>
+  <rect width="1200" height="760" fill="#ffffff"/>
+  <text x="600" y="42" text-anchor="middle" class="title">真实 PCB 案例：ESP32-DevKitC V4</text>
+  <text x="600" y="70" text-anchor="middle" class="sub">官方开发板的供电、USB 串口、自动下载和射频区域；位置近似，不是制造层</text>
+
+  <rect x="305" y="96" width="590" height="540" rx="18" class="board"/>
+  <rect x="325" y="115" width="58" height="475" rx="8" class="conn"/><text x="354" y="356" text-anchor="middle" class="t" transform="rotate(-90 354 356)">J2：3V3 / EN / ADC / GPIO / 5V</text>
+  <rect x="817" y="115" width="58" height="475" rx="8" class="conn"/><text x="846" y="356" text-anchor="middle" class="t" transform="rotate(90 846 356)">J3：GND / UART / GPIO / BOOT</text>
+
+  <rect x="420" y="115" width="360" height="225" rx="14" class="logic"/>
+  <rect x="442" y="132" width="316" height="64" rx="9" class="keepout"/><text x="600" y="160" text-anchor="middle" class="h">PCB 天线与净空区</text><text x="600" y="184" text-anchor="middle" class="tiny">板边外不要铺铜、走线或放金属</text>
+  <text x="600" y="239" text-anchor="middle" class="h">ESP32-WROOM-32 系列模块</text>
+  <text x="600" y="273" text-anchor="middle" class="t">ESP32 + SPI Flash + 40 MHz 晶体 + 射频匹配</text>
+  <text x="600" y="307" text-anchor="middle" class="t">模块把高风险射频部分封装成可复用单元</text>
+
+  <rect x="400" y="385" width="180" height="105" rx="12" class="iface"/>
+  <text x="490" y="421" text-anchor="middle" class="h">USB-UART</text><text x="490" y="451" text-anchor="middle" class="t">CP2102N</text><text x="490" y="476" text-anchor="middle" class="tiny">TXD / RXD / DTR / RTS</text>
+  <rect x="620" y="385" width="180" height="105" rx="12" class="power"/>
+  <text x="710" y="421" text-anchor="middle" class="h">3.3 V 电源</text><text x="710" y="451" text-anchor="middle" class="t">BAT760 + AMS1117</text><text x="710" y="476" text-anchor="middle" class="tiny">22 µF + 0.1 µF 去耦</text>
+
+  <rect x="430" y="515" width="210" height="74" rx="10" class="passive"/>
+  <text x="535" y="544" text-anchor="middle" class="h">自动下载电路</text><text x="535" y="571" text-anchor="middle" class="t">DTR / RTS → Q1 / Q2 → EN / IO0</text>
+  <rect x="675" y="515" width="105" height="74" rx="10" class="conn"/><text x="727" y="546" text-anchor="middle" class="h">按键</text><text x="727" y="573" text-anchor="middle" class="t">EN / BOOT</text>
+  <rect x="520" y="604" width="160" height="52" rx="9" class="conn"/><text x="600" y="636" text-anchor="middle" class="h">Micro-USB</text>
+  <rect x="405" y="604" width="92" height="52" rx="9" class="iface"/><text x="451" y="628" text-anchor="middle" class="t">D2 ESD</text><text x="451" y="647" text-anchor="middle" class="tiny">USB 保护</text>
+
+  <path d="M520 630 H497" class="arrow"/><path d="M405 630 H375 V438 H400" class="arrow"/>
+  <path d="M580 438 H600 V318" class="arrow"/><path d="M580 466 H600 V552 H640" class="arrow"/>
+  <path d="M680 630 H710 V490" class="arrow"/><path d="M710 385 V340" class="arrow"/>
+  <path d="M640 552 H675" class="arrow"/><path d="M535 515 V340" class="arrow"/>
+  <path d="M383 535 H430" class="dash"/><path d="M780 535 H817" class="dash"/>
+
+  <rect x="70" y="665" width="1060" height="72" rx="12" fill="#f7f9fc" stroke="#c7d0da" stroke-width="2"/>
+  <text x="100" y="695" class="h">阅读重点：</text>
+  <text x="242" y="695" class="t">USB 同时承载 5 V 能量和 D+/D− 信息；CP2102N 只做协议桥，自动下载由两只晶体管改变 EN/IO0 时序。</text>
+  <text x="242" y="723" class="t">官方要求 USB、5 V 引脚、3V3 引脚三种供电方式只能选一种；早期板 C15 还展示了“小电容也会改变启动行为”。</text>
+</svg>
